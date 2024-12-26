@@ -9,6 +9,7 @@ use App\Models\Product;
 
 class SearchTest extends TestCase
 {
+    use RefreshDatabase;
     /**
      * Test whether the search page is accessible.
      *
