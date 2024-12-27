@@ -27,10 +27,14 @@
                         <div class="col-md-8">
                             <div class="card-body">
                                 <h5 class="card-title m-0 p-0">{{ $item->name }}</h5>
-                                <span>${{ $item->price }}</span>
+                                <span>${{ $item->cost }}</span>
 
                                 <div class="mt-2">
-                                    <button type="button" class="btn btn-primary">Add</button>
+                                    <form action="/cart" method="POST">
+                                        @csrf
+                                        <input type="hidden" name="id" value="{{ $item->id }}">
+                                        <button type="submit" class="btn btn-primary">Add</button>
+                                    </form>
                                 </div>
 
                             </div>

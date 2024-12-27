@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SearchProductsController;
+use App\Http\Controllers\CartController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,10 +17,9 @@ use App\Http\Controllers\SearchProductsController;
 
 Route::get('/', [SearchProductsController::class, 'index']);
 
-Route::get('/cart', function () {
-    return view('cart');
-});
+Route::post('/cart', [CartController::class, 'store']);
 
+Route::get('/cart', [CartController::class, 'index']);
 
 Route::get('/checkout', function () {
     return view('checkout');
